@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sortiment – Lilla Grönsaksboden i Hylte</title>
+
+  <style>
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a, .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    background-color: #000;
+    z-index: 11;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    
+  }
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  background: url('grönsaker.jpg') center/cover no-repeat fixed;
+  color: #3a3a2d;
+  margin: 0;
+  padding: 0;
+}
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      color: #58703e;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      font-style: italic;
+      color: #6b7a4a;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+    .hero {
+  background-color: antiquewhite;
+  padding: 50px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 160px;   /* ← flyttar ner hero */
+}
+.sortiment-hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sortiment-hero img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.sortiment-hero h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+
+
+    h2 {
+      border-bottom: 2px solid #a3b97d;
+      padding-bottom: 6px;
+      color: #58703e;
+      margin-bottom: 12px;
+    }
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    .row{
+        display: flex;
+        justify-content: space-between;
+    }
+    .navigation {
+        display: flex;
+        justify-content: center;
+    }
+    .item, .price {
+        margin: 5px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #58703e;
+      font-weight: bold;
+    }
+    .hero-content {
+        max-width: 90%;
+        margin: auto;
+    }
+    .social-footer {
+  background-color: #000;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.social-footer img {
+  height: 28px;
+  width: auto;
+  filter: invert(1); /* gör ikoner vita om de är svarta */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-footer img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+    /* Responsive */
+    @media(max-width: 500px) {
+  header h1 {
+    font-size: 2.5rem;      /* mindre text på små skärmar */
+  }
+}
+.page-content {
+  flex: 1;
+  min-height: calc(100svh - 60px); /* 👈 footer-höjden */
+}
+
+
+.social-footer {
+  margin-top: auto;
+}
+.site-copyright {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.social-footer {
+  height: 60px;
+  margin-top: auto;
+}
+.social-footer {
+  background-color: #000;
+  height: 60px;              /* 👈 EN fast höjd */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding-right: 40px;
+  gap: 25px;
+
+  margin-top: auto;
+}
+
+
+.social-footer a {
+  color: #fff;           /* 👈 vit text */
+  text-decoration: none; /* valfritt – tar bort understrykning */
+  font-size: 0.9rem;
+}
+
+
+.social-footer img {
+  height: 28px;               /* 👈 mindre än innan */
+  width: auto;
+  filter: invert(1);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+
+
+
+.social-footer img:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+@media (max-width: 600px) {
+  .social-footer img {
+    height: 24px;
+  }
+}
+  </style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="ommig.html">Om mig</a>
+  <a href="javascript:void(0);" class="openModalBtn">Kontakt</a>
+  <a href="sortiment.html">Sortiment</a>
+  <a href="index.html">Hem</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+  <header>
+
+  </header>
+  <div class="hero">
+    <div class="hero-content">
+  
+      <section>
+        <h1>Om mig</h1>
+        <section class="sortiment-hero">
+            <img src="ommig.png" alt="Vårt sortiment av grönsaker">
+          </section>
+      </section>
+      <section>
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos repellendus in quaerat. Deserunt quae reprehenderit adipisci! Dolorum recusandae enim praesentium optio, expedita necessitatibus ipsam voluptas quaerat veniam sint sed maxime!</h2>
+        <div>
+      </section>
+      <a href="index.html" class="back">← Tillbaka till startsidan</a>
+    </div>
+  </div>
+
+  <footer class="social-footer">
+    <a href="https://www.facebook.com/profile.php?id=61575822066448&locale=sv_SE" target="_blank" aria-label="Facebook">
+      <img src="facebook.png" alt="Facebook">
+    </a>
+    <a href="https://www.instagram.com/lilla.gronsaksboden/" target="_blank" aria-label="Instagram">
+      <img src="instagram.png" alt="Instagram">
+    </a>
+
+    <a>© Lilla Grönsaksboden</a>   
+
+  </footer>
+  <script>
+
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script> 
+</body>
+</html>
