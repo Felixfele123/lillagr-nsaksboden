@@ -138,15 +138,12 @@ html, body {
   width: 80%;
 }
 body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #0d4904;
-      color: #3a3a2d;
-      padding: 0px;
-      max-width: 900px;
-      margin: auto;
-      background: url('gronsaker.jpg') center/cover no-repeat fixed;
-    }
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: url('gronsaker.jpg') center/cover no-repeat fixed;
+  margin: 0;
+}
+
 
     header {
       text-align: center;
@@ -172,22 +169,28 @@ body {
   background-color: antiquewhite;
   padding: 50px 20px;
   width: 100%;
-  box-sizing: border-box;
+
   margin-top: 160px;   /* ← flyttar ner hero */
+}
+/* Större skärmar */
+@media (min-width: 1200px) {
+  .hero {
+    padding: 120px 80px;   /* mer luft uppe/nere och på sidorna */
+  }
 }
 
 
 
-    h2 {
+    .hero h2 {
       border-bottom: 2px solid #a3b97d;
       padding-bottom: 6px;
       color: #58703e;
       margin-bottom: 12px;
     }
-    h1 {
+    .hero h1 {
         text-align: center;
     }
-    p {
+    .hero p {
         text-align: center;
     }
     .row{
@@ -312,10 +315,91 @@ body {
 .hero, .hero-content, img {
   max-width: 100%;
 }
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;                       /* täcker hela skärmen */
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
 
+  overflow-y: auto;               /* 👈 gör att hela modalen kan scrollas */
+  padding: 40px 20px;             /* lite luft runt */
+}
+
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  color: #000;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+
+  border-radius: 10px;
+
+  max-height: none;               /* 👈 viktigt */
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content {
+  background-color: #fefefe;
+  color: #000; /* svart text */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+  z-index: 10;
+}
   </style>
 </head>
 <body>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Kontakt</h1>
+  
+      <div style="margin-top:20px;">
+        <p><strong>Telefon:</strong> <a href="tel:+46701234567">070-461 80 75</a></p>
+        <p><strong>E-post:</strong> <a href="mailto:info@lillagardsbutikenihylte.se">pernilla.ivarsson@outlook.com</a></p>
+        <p><strong>Öppettider:</strong><br>Fredag: 14:00 – 18:00<br>Lördag: 10:00 – 14:00</p>
+        <p><strong>Adress:</strong><br>Tornåsvägen 5, Torup, Sweden 314 96</p>
+  
+        <p><strong>Följ oss:</strong></p>
+        <a href="https://www.facebook.com/profile.php?id=61575822066448&locale=sv_SE" target="_blank">
+          <img src="facebook.png" alt="Facebook" style="height:28px; margin-right:10px;">
+        </a>
+        <a href="https://www.instagram.com/lilla.gronsaksboden/" target="_blank">
+          <img src="instagram.png" alt="Instagram" style="height:28px;">
+        </a>
+  
+        <p style="margin-top:20px;"><strong>Karta:</strong></p>
+        <iframe
+        width="100%"
+        height="400"
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps?q=Tornåsvägen+5,+314+96+Torup,+Sweden&output=embed">
+      </iframe>
+      
+      </div>
+    </div>
+  </div>
   <div class="topnav" id="myTopnav">
     <a href="ommig.html">Om mig</a>
     <a href="#oppettider" id="myBtn" >Kontakt</a>
@@ -338,51 +422,50 @@ body {
         <h2>Grönsaker</h2>
         <div>
             <div class="row">
-                <span class="item">Potatis</span>
-                <span class="price">25 kr/kg</span>
+                <span class="item">Potatis, Carolus (mjölig sort) 2kg</span>
+                <span class="price">54kr</span>
             </div>          
             <div class="row">
-                <span class="item">Morötter</span>
-                <span class="price">17 kr/kg</span>
-            </div>  
-            <div class="row">
-                <span class="item">lök</span>
-                <span class="price">10 kr/kg</span>
-            </div>  
-            <div class="row">
-                <span class="item">gurka</span>
-                <span class="price">6 kr/kg</span>
-            </div>  
-            <div class="row">
-                <span class="item">Paprika</span>
-                <span class="price">13 kr/kg</span>
+                <span class="item">Röd- & gul lök</span>
+                <span class="price">20kr/st</span>
             </div>  
         <div>
       </section>
   
       <section>
         <h2>Övrigt</h2>
+        <div class="row">
+          <span class="item">Tomatmarmelad</span>
+          <span class="price">60kr</span>
+      </div>  
         <div>
+          <div class="row">
+            <span class="item">Päron/vaniljmarmelad</span>
+            <span class="price">55kr</span>
+        </div>  
+          <div class="row">
+            <span class="item">Päron/rosmarinmarmelad</span>
+            <span class="price">55kr</span>
+        </div>  
             <div class="row">
-                <span class="item">Ägg </span>
-                <span class="price">10 kr/kg</span>
+                <span class="item">Fröknäcke, 120g </span>
+                <span class="price">42kr</span>
             </div>          
             <div class="row">
-                <span class="item">Kött</span>
-                <span class="price">17 kr/kg</span>
+                <span class="item">Squashfrallor</span>
+                <span class="price">16kr/st</span>
             </div>  
             <div class="row">
-                <span class="item">Honung</span>
-                <span class="price">10 kr/kg</span>
+                <span class="item">Honung från Hambergs Bigårdar</span>
+                <span class="price">fast 100kr, flytande 70kr</span>
             </div>  
             <div class="row">
-                <span class="item">Räkor</span>
-                <span class="price">6 kr/kg</span>
-            </div>  
-            <div class="row">
-                <span class="item">kanelbulle</span>
-                <span class="price">13 kr</span>
-            </div>  
+              <span class="item">Ägg från Tåghults gård, 1 flak</span>
+              <span class="price">140kr</span>
+          </div>  
+          <div class="row">
+            <span class="item">I frysen finns alltid ett utbud av fisk från Björkängs Fisk, kött från Vj Vilt och lamm från Lilla Kärshult. Jag förädlar också grönsaker och fryser in så det kan finnas allt från riven squash, persilja, vaxbönor och tomatsås.</span>
+        </div>  
         <div>
       </section>
   

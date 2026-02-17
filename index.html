@@ -133,27 +133,30 @@ body {
   margin-top: auto;   /* 👈 THIS IS THE MAGIC ✨ */
 }
 
-    .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 2; /* Sit on top */
-  padding-top: 200px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;                       /* täcker hela skärmen */
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
+
+  overflow-y: auto;               /* 👈 gör att hela modalen kan scrollas */
+  padding: 40px 20px;             /* lite luft runt */
 }
+
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #fff;
+  color: #000;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  width: 90%;
+  max-width: 700px;
+
+  border-radius: 10px;
+
+  max-height: none;               /* 👈 viktigt */
 }
 
 /* The Close Button */
@@ -226,7 +229,7 @@ header {
   position: absolute;
   top: 20px;
   left: 20px;
-  height: 150px;          /* justera storlek här */
+  height: 175px;          /* justera storlek här */
   z-index: 0;           /* ligger ovanpå bakgrunden */
 }
 
@@ -331,6 +334,7 @@ header p {
     padding: 12px 25px;
     border-radius: 6px;
     font-weight: bold;
+    width:130px;
     transition: background-color 0.3s;
     }
     .item, .price {
@@ -412,8 +416,8 @@ header p {
     <h1>Kontakt</h1>
 
     <div style="margin-top:20px;">
-      <p><strong>Telefon:</strong> <a href="tel:+46701234567">07x-xxx xx xx</a></p>
-      <p><strong>E-post:</strong> <a href="mailto:info@lillagardsbutikenihylte.se">info@lillagardsbutikenihylte.se</a></p>
+      <p><strong>Telefon:</strong> <a href="tel:+46701234567">070-461 80 75</a></p>
+      <p><strong>E-post:</strong> <a href="mailto:info@lillagardsbutikenihylte.se">pernilla.ivarsson@outlook.com</a></p>
       <p><strong>Öppettider:</strong><br>Fredag: 14:00 – 18:00<br>Lördag: 10:00 – 14:00</p>
       <p><strong>Adress:</strong><br>Tornåsvägen 5, Torup, Sweden 314 96</p>
 
@@ -427,8 +431,14 @@ header p {
 
       <p style="margin-top:20px;"><strong>Karta:</strong></p>
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15951.507338889588!2d13.38630425!3d56.8061833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465097c48b96eb27%3A0xb1c7cde7d508adf1!2sHylte!5e0!3m2!1ssv!2sse!4v1706999999999!5m2!1ssv!2sse"
-        width="100%" height="200" style="border:0;"></iframe>
+      width="100%"
+      height="400"
+      style="border:0;"
+      loading="lazy"
+      allowfullscreen
+      src="https://www.google.com/maps?q=Tornåsvägen+5,+314+96+Torup,+Sweden&output=embed">
+    </iframe>
+    
     </div>
   </div>
 </div>

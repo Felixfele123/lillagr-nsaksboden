@@ -162,10 +162,13 @@ body {
 
 .sortiment-hero img {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  max-width: 800px;   /* maxbredd */
+  height: auto;       /* 👈 behåller proportioner */
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;     /* centrerar bilden */
 }
+
 
 .sortiment-hero h1 {
   position: absolute;
@@ -179,16 +182,16 @@ body {
 
 
 
-    h2 {
+    .hero h2 {
       border-bottom: 2px solid #a3b97d;
       padding-bottom: 6px;
       color: #58703e;
       margin-bottom: 12px;
     }
-    h1 {
+    .hero h1 {
         text-align: center;
     }
-    p {
+    .hero p {
         text-align: center;
     }
     .row{
@@ -302,10 +305,133 @@ body {
     height: 24px;
   }
 }
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;                       /* täcker hela skärmen */
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
+
+  overflow-y: auto;               /* 👈 gör att hela modalen kan scrollas */
+  padding: 40px 20px;             /* lite luft runt */
+}
+
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  color: #000;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+
+  border-radius: 10px;
+
+  max-height: none;               /* 👈 viktigt */
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-content {
+  background-color: #fefefe;
+  color: #000; /* svart text */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  position: relative;
+  z-index: 10;
+}
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;   /* samma storlek på stora skärmar */
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.about-text {
+  flex: 1;
+}
+.about-text p {
+  margin-bottom: 18px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+
+.about-wrapper {
+  flex-direction: column;   /* staplar bild + text */
+  align-items: stretch;
+}
+
+.about-image img {
+  max-width: 100%;          /* full bredd */
+  width: 100%;
+}
+
+.about-text {
+  text-align: left;
+}
+}
+
+
+
   </style>
 </head>
 <body>
-
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Kontakt</h1>
+  
+      <div style="margin-top:20px;">
+        <p><strong>Telefon:</strong> <a href="tel:+46701234567">070-461 80 75</a></p>
+        <p><strong>E-post:</strong> <a href="mailto:info@lillagardsbutikenihylte.se">pernilla.ivarsson@outlook.com</a></p>
+        <p><strong>Öppettider:</strong><br>Fredag: 14:00 – 18:00<br>Lördag: 10:00 – 14:00</p>
+        <p><strong>Adress:</strong><br>Tornåsvägen 5, Torup, Sweden 314 96</p>
+  
+        <p><strong>Följ oss:</strong></p>
+        <a href="https://www.facebook.com/profile.php?id=61575822066448&locale=sv_SE" target="_blank">
+          <img src="facebook.png" alt="Facebook" style="height:28px; margin-right:10px;">
+        </a>
+        <a href="https://www.instagram.com/lilla.gronsaksboden/" target="_blank">
+          <img src="instagram.png" alt="Instagram" style="height:28px;">
+        </a>
+  
+        <p style="margin-top:20px;"><strong>Karta:</strong></p>
+        <iframe
+        width="100%"
+        height="400"
+        style="border:0;"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps?q=Tornåsvägen+5,+314+96+Torup,+Sweden&output=embed">
+      </iframe>
+      
+      </div>
+    </div>
+  </div>
 <div class="topnav" id="myTopnav">
   <a href="ommig.html">Om mig</a>
   <a href="javascript:void(0);" class="openModalBtn">Kontakt</a>
@@ -321,14 +447,46 @@ body {
   
       <section>
         <h1>Om mig</h1>
-        <section class="sortiment-hero">
-            <img src="ommig.png" alt="Vårt sortiment av grönsaker">
-          </section>
       </section>
-      <section>
-        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos repellendus in quaerat. Deserunt quae reprehenderit adipisci! Dolorum recusandae enim praesentium optio, expedita necessitatibus ipsam voluptas quaerat veniam sint sed maxime!</h2>
-        <div>
-      </section>
+      <div class="about-wrapper">
+        <div class="about-image">
+          <img src="ommig.jpg" alt="Om mig">
+        </div>
+      
+        <div class="about-text">
+          <p>Hej och varmt välkommen 🌱</p>
+        
+          <p>
+            Jag som driver Lilla Grönsaksboden brinner för närproducerat,
+            kvalitet och det personliga mötet. För mig handlar det inte bara
+            om att sälja grönsaker – det handlar om att skapa en plats där
+            människor kan handla med hjärtat och känna sig trygga med det de
+            lägger på tallriken.
+          </p>
+        
+          <p>
+            Jag tror på det småskaliga och genuina. Att veta var maten kommer
+            ifrån, hur den har odlats och att den får mogna i sin egen takt gör
+            stor skillnad – både för smaken och för miljön.
+          </p>
+        
+          <p>
+            I boden hittar du noga utvalda råvaror, ofta efter säsong, och jag
+            gör alltid mitt bästa för att erbjuda färska, fina produkter med
+            omtanke bakom.
+          </p>
+        
+          <p>
+            Det betyder mycket för mig att få möta er kunder, prata en stund
+            och dela tips om hur man kan laga något gott av det som finns i
+            säsong just nu.
+          </p>
+        
+          <p>Tack för att du stöttar lokalt 🌾<br>Vi ses i boden!</p>
+        </div>
+        
+      </div>
+      
       <a href="index.html" class="back">← Tillbaka till startsidan</a>
     </div>
   </div>
@@ -346,40 +504,67 @@ body {
   </footer>
   <script>
 
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
+var modal = document.getElementById("myModal");
 
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
+// Alla knappar/flikar som ska öppna modalen
+var modalBtns = document.querySelectorAll(".openModalBtn");
+
+// Close-knappen
+var span = document.getElementsByClassName("close")[0];
+
+// Lägg till klick-event på alla knappar/flikar
+modalBtns.forEach(function(btn) {
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+});
+
+// Stäng modal vid klick på X
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// Stäng modal vid klick utanför
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
     </script> 
 </body>
 </html>
